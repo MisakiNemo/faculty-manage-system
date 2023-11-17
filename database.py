@@ -128,6 +128,7 @@ def updateStaff(staff_id, name, gender, birth_date, title, department_id):
     try:
         with connection.cursor() as cursor:
             sql = "UPDATE `staff` SET `name`=%s,`gender`=%s,`birth_date`=%s,`title`=%s,`department_id`=%s WHERE `staff_id`=%s"
+
             cursor.execute(sql, (name, gender, birth_date, title, department_id, staff_id))
             connection.commit()
     except Exception as e:
@@ -161,7 +162,9 @@ def selectStaff(staff_id, name, gender, birth_date, title, department_id):
             AND (%s IS NULL OR title = %s)
             AND (%s IS NULL OR department_id = %s)
             '''
-            cursor.execute(sql, (staff_id, staff_id, name, name, gender, gender, birth_date, birth_date, title, title, department_id, department_id))
+            cursor.execute(sql, (
+            staff_id, staff_id, name, name, gender, gender, birth_date, birth_date, title, title, department_id,
+            department_id))
             results = cursor.fetchall()
             print(results)
     except  Exception as e:
@@ -169,5 +172,233 @@ def selectStaff(staff_id, name, gender, birth_date, title, department_id):
         connection.rollback()
 
 
+# 课程部分
+# 获取所有课程信息
+def getAllCourse():
+    try:
+        # 创建 cursor 对象
+        with connection.cursor() as cursor:
+            # 执行 SQL 查询
+            sql = "SELECT * FROM `course`"
+            cursor.execute(sql)
+            # 获取查询结果
+            results = cursor.fetchall()
+            print(results)
+    except Exception as e:
+        print("发生错误：", e)
+        connection.rollback()
 
-selectStaff(None, None, "男", None, None, None)
+
+# 添加课程信息
+def addCourse(course_name, credits):
+    try:
+        with connection.cursor() as cursor:
+            # 正确的 SQL 插入语句
+            sql = "INSERT INTO `course` (`course_name`, `credits`) VALUES (%s, %s)"
+            # 执行 SQL 语句并传递参数
+            cursor.execute(sql, (course_name, credits))
+            connection.commit()
+    except Exception as e:
+        print("发生错误：", e)
+        connection.rollback()
+
+
+# 删除课程信息
+def deleteCourse(course_id):
+    try:
+        with connection.cursor() as cursor:
+            # 正确的 SQL 删除语句
+            sql = "DELETE FROM `course` WHERE `course_id`=%s"
+            # 执行 SQL 语句并传递参数
+            cursor.execute(sql, course_id)
+            connection.commit()
+    except Exception as e:
+        print("发生错误：", e)
+        connection.rollback()
+
+
+# 修改课程信息
+def updateCourse(course_id, course_name, credits):
+    try:
+        with connection.cursor() as cursor:
+            sql = "UPDATE `course` SET `course_name`=%s,`credits`=%s WHERE `course_id`=%s"
+
+            cursor.execute(sql, (course_name, credits, course_id))
+            connection.commit()
+    except Exception as e:
+        print("发生错误：", e)
+        connection.rollback()
+
+
+# 查询对应的课程
+def selectCourse(course_id, course_name, credits):
+    try:
+        with connection.cursor() as cursor:
+            # 使用参数化查询
+            sql = '''
+            SELECT * FROM `course`
+            WHERE (%s IS NULL OR course_id = %s)
+            AND (%s IS NULL OR course_name = %s)
+            AND (%s IS NULL OR credits = %s)
+            '''
+            cursor.execute(sql, (course_id, course_id, course_name, course_name, credits, credits))
+            results = cursor.fetchall()
+            print(results)
+    except  Exception as e:
+        print("发生错误：", e)
+        connection.rollback()
+
+
+# 部门部分
+# 获取所有部门信息
+def getAllDepartment():
+    try:
+        # 创建 cursor 对象
+        with connection.cursor() as cursor:
+            # 执行 SQL 查询
+            sql = "SELECT * FROM `department`"
+            cursor.execute(sql)
+            # 获取查询结果
+            results = cursor.fetchall()
+            print(results)
+    except Exception as e:
+        print("发生错误：", e)
+        connection.rollback()
+
+
+# 添加部门信息
+def addDepartment(department_name, manager_id):
+    try:
+        with connection.cursor() as cursor:
+            # 正确的 SQL 插入语句
+            sql = "INSERT INTO `department` (`department_name`, `manager_id`) VALUES (%s, %s)"
+            # 执行 SQL 语句并传递参数
+            cursor.execute(sql, (department_name, manager_id))
+            connection.commit()
+    except Exception as e:
+        print("发生错误：", e)
+        connection.rollback()
+
+
+# 删除部门信息
+def deleteDepartment(department_id):
+    try:
+        with connection.cursor() as cursor:
+            # 正确的 SQL 删除语句
+            sql = "DELETE FROM `department` WHERE `department_id`=%s"
+            # 执行 SQL 语句并传递参数
+            cursor.execute(sql, department_id)
+            connection.commit()
+    except Exception as e:
+        print("发生错误：", e)
+        connection.rollback()
+
+
+# 修改部门信息
+def updateDepartment(department_id, department_name, manager_id):
+    try:
+        with connection.cursor() as cursor:
+            sql = "UPDATE `department` SET `department_name`=%s,`manager_id`=%s WHERE `department_id`=%s"
+
+            cursor.execute(sql, (department_name, manager_id, department_id))
+            connection.commit()
+    except Exception as e:
+        print("发生错误：", e)
+        connection.rollback()
+
+
+# 查询对应的部门
+def selectDepartment(department_id, department_name, manager_id):
+    try:
+        with connection.cursor() as cursor:
+            # 使用参数化查询
+            sql = '''
+            SELECT * FROM `department`
+            WHERE (%s IS NULL OR department_id = %s)
+            AND (%s IS NULL OR department_name = %s)
+            AND (%s IS NULL OR manager_id = %s)
+            '''
+            cursor.execute(sql,
+                           (department_id, department_id, department_name, department_name, manager_id, manager_id))
+            results = cursor.fetchall()
+            print(results)
+    except  Exception as e:
+        print("发生错误：", e)
+        connection.rollback()
+
+
+# 工资部分
+# 获取所有工资信息
+def getAllSalary():
+    try:
+        # 创建 cursor 对象
+        with connection.cursor() as cursor:
+            # 执行 SQL 查询
+            sql = "SELECT * FROM `salary`"
+            cursor.execute(sql)
+            # 获取查询结果
+            results = cursor.fetchall()
+            print(results)
+    except Exception as e:
+        print("发生错误：", e)
+        connection.rollback()
+
+
+# 添加工资信息
+def addSalary(staff_id, amount, pay_date):
+    try:
+        with connection.cursor() as cursor:
+            # 正确的 SQL 插入语句
+            sql = "INSERT INTO `salary` (`staff_id`, `amount`, `pay_date`) VALUES (%s, %s, %s)"
+            # 执行 SQL 语句并传递参数
+            cursor.execute(sql, (staff_id, amount, pay_date))
+            connection.commit()
+    except Exception as e:
+        print("发生错误：", e)
+        connection.rollback()
+
+
+# 删除工资信息
+def deleteSalary(salary_id):
+    try:
+        with connection.cursor() as cursor:
+            # 正确的 SQL 删除语句
+            sql = "DELETE FROM `salary` WHERE `salary_id`=%s"
+            # 执行 SQL 语句并传递参数
+            cursor.execute(sql, salary_id)
+            connection.commit()
+    except Exception as e:
+        print("发生错误：", e)
+        connection.rollback()
+
+
+# 修改工资信息
+def updateSalary(salary_id, staff_id, amount, pay_date):
+    try:
+        with connection.cursor() as cursor:
+            sql = "UPDATE `salary` SET `staff_id`=%s,`amount`=%s,`pay_date`=%s WHERE `salary_id`=%s"
+
+            cursor.execute(sql, (staff_id, amount, pay_date, salary_id))
+            connection.commit()
+    except Exception as e:
+        print("发生错误：", e)
+        connection.rollback()
+
+
+# 用户登录
+def login(username, password) -> bool:
+    try:
+        with connection.cursor() as cursor:
+            sql = "SELECT * FROM `user` WHERE `username`=%s AND `password`=%s"
+            cursor.execute(sql, (username, password))
+            results = cursor.fetchall()
+            print(results)
+            if len(results) == 0:
+                return False
+            else:
+                return True
+    except Exception as e:
+        print("发生错误：", e)
+        connection.rollback()
+
+
