@@ -780,8 +780,8 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </schema>
     <schema id="225" parent="1" name="faculty">
       <Current>1</Current>
-      <IntrospectionTimestamp>2023-11-16.23:30:28</IntrospectionTimestamp>
-      <LocalIntrospectionTimestamp>2023-11-16.15:30:28</LocalIntrospectionTimestamp>
+      <IntrospectionTimestamp>2023-11-18.17:12:27</IntrospectionTimestamp>
+      <LocalIntrospectionTimestamp>2023-11-18.09:12:27</LocalIntrospectionTimestamp>
       <CollationName>utf8_general_ci</CollationName>
     </schema>
     <schema id="226" parent="1" name="manage">
@@ -814,262 +814,157 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Engine>InnoDB</Engine>
       <CollationName>utf8_general_ci</CollationName>
     </table>
-    <table id="236" parent="225" name="education">
+    <table id="236" parent="225" name="salary">
       <Engine>InnoDB</Engine>
       <CollationName>utf8_general_ci</CollationName>
     </table>
-    <table id="237" parent="225" name="salary">
+    <table id="237" parent="225" name="staff">
       <Engine>InnoDB</Engine>
       <CollationName>utf8_general_ci</CollationName>
     </table>
-    <table id="238" parent="225" name="staff">
+    <table id="238" parent="225" name="user">
       <Engine>InnoDB</Engine>
       <CollationName>utf8_general_ci</CollationName>
     </table>
-    <table id="239" parent="225" name="teach">
-      <Engine>InnoDB</Engine>
-      <CollationName>utf8_general_ci</CollationName>
-    </table>
-    <table id="240" parent="225" name="user">
-      <Engine>InnoDB</Engine>
-      <CollationName>utf8_general_ci</CollationName>
-    </table>
-    <column id="241" parent="234" name="course_id">
+    <column id="239" parent="234" name="course_id">
       <AutoIncrement>1</AutoIncrement>
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="242" parent="234" name="course_name">
+    <column id="240" parent="234" name="course_name">
       <DasType>varchar(100)|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="243" parent="234" name="credits">
-      <DasType>int(11)|0s</DasType>
-      <Position>3</Position>
-    </column>
-    <index id="244" parent="234" name="PRIMARY">
+    <index id="241" parent="234" name="PRIMARY">
       <ColNames>course_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="245" parent="234" name="PRIMARY">
+    <key id="242" parent="234" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="246" parent="235" name="department_id">
-      <AutoIncrement>1</AutoIncrement>
+    <column id="243" parent="235" name="department_id">
+      <AutoIncrement>4</AutoIncrement>
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="247" parent="235" name="department_name">
+    <column id="244" parent="235" name="department_name">
       <DasType>varchar(100)|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="248" parent="235" name="manager_id">
-      <DasType>int(11)|0s</DasType>
-      <Position>3</Position>
-    </column>
-    <index id="249" parent="235" name="PRIMARY">
+    <index id="245" parent="235" name="PRIMARY">
       <ColNames>department_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="250" parent="235" name="PRIMARY">
+    <key id="246" parent="235" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="251" parent="236" name="education_id">
-      <AutoIncrement>1</AutoIncrement>
+    <column id="247" parent="236" name="salary_id">
+      <AutoIncrement>17</AutoIncrement>
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="252" parent="236" name="staff_id">
+    <column id="248" parent="236" name="staff_id">
       <DasType>int(11)|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="253" parent="236" name="degree">
-      <DasType>varchar(50)|0s</DasType>
-      <Position>3</Position>
-    </column>
-    <column id="254" parent="236" name="major">
-      <DasType>varchar(100)|0s</DasType>
-      <Position>4</Position>
-    </column>
-    <column id="255" parent="236" name="university">
-      <DasType>varchar(100)|0s</DasType>
-      <Position>5</Position>
-    </column>
-    <column id="256" parent="236" name="graduation_year">
-      <DasType>year(4)|0s</DasType>
-      <Position>6</Position>
-    </column>
-    <foreign-key id="257" parent="236" name="education_ibfk_1">
-      <ColNames>staff_id</ColNames>
-      <RefColNames>staff_id</RefColNames>
-      <RefTableName>staff</RefTableName>
-    </foreign-key>
-    <index id="258" parent="236" name="PRIMARY">
-      <ColNames>education_id</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <index id="259" parent="236" name="staff_id">
-      <ColNames>staff_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="260" parent="236" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
-    </key>
-    <column id="261" parent="237" name="salary_id">
-      <AutoIncrement>1</AutoIncrement>
-      <DasType>int(11)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-    </column>
-    <column id="262" parent="237" name="staff_id">
-      <DasType>int(11)|0s</DasType>
-      <Position>2</Position>
-    </column>
-    <column id="263" parent="237" name="amount">
+    <column id="249" parent="236" name="amount">
       <DasType>decimal(10,2 digit)|0s</DasType>
       <Position>3</Position>
     </column>
-    <column id="264" parent="237" name="pay_date">
+    <column id="250" parent="236" name="pay_date">
       <DasType>date|0s</DasType>
       <Position>4</Position>
     </column>
-    <foreign-key id="265" parent="237" name="salary_ibfk_1">
+    <foreign-key id="251" parent="236" name="salary_ibfk_1">
       <ColNames>staff_id</ColNames>
       <RefColNames>staff_id</RefColNames>
       <RefTableName>staff</RefTableName>
     </foreign-key>
-    <index id="266" parent="237" name="PRIMARY">
+    <index id="252" parent="236" name="PRIMARY">
       <ColNames>salary_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="267" parent="237" name="staff_id">
+    <index id="253" parent="236" name="staff_id">
       <ColNames>staff_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="268" parent="237" name="PRIMARY">
+    <key id="254" parent="236" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="269" parent="238" name="staff_id">
-      <AutoIncrement>12</AutoIncrement>
+    <column id="255" parent="237" name="staff_id">
+      <AutoIncrement>40</AutoIncrement>
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="270" parent="238" name="name">
+    <column id="256" parent="237" name="name">
       <DasType>varchar(100)|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="271" parent="238" name="gender">
+    <column id="257" parent="237" name="gender">
       <DasType>varchar(10)|0s</DasType>
+      <DefaultExpression>&apos;男&apos;</DefaultExpression>
       <Position>3</Position>
     </column>
-    <column id="272" parent="238" name="birth_date">
+    <column id="258" parent="237" name="birth_date">
       <DasType>date|0s</DasType>
       <Position>4</Position>
     </column>
-    <column id="273" parent="238" name="title">
-      <DasType>varchar(50)|0s</DasType>
+    <column id="259" parent="237" name="department_id">
+      <DasType>int(11)|0s</DasType>
       <Position>5</Position>
     </column>
-    <column id="274" parent="238" name="department_id">
-      <DasType>int(11)|0s</DasType>
-      <Position>6</Position>
-    </column>
-    <foreign-key id="275" parent="238" name="staff_ibfk_1">
+    <foreign-key id="260" parent="237" name="staff_ibfk_1">
       <ColNames>department_id</ColNames>
       <RefColNames>department_id</RefColNames>
       <RefTableName>department</RefTableName>
     </foreign-key>
-    <index id="276" parent="238" name="PRIMARY">
+    <index id="261" parent="237" name="PRIMARY">
       <ColNames>staff_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="277" parent="238" name="department_id">
+    <index id="262" parent="237" name="department_id">
       <ColNames>department_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="278" parent="238" name="PRIMARY">
+    <key id="263" parent="237" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="279" parent="239" name="staff_id">
+    <column id="264" parent="238" name="user_id">
+      <AutoIncrement>2</AutoIncrement>
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="280" parent="239" name="course_id">
-      <DasType>int(11)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-    </column>
-    <column id="281" parent="239" name="semester">
-      <DasType>varchar(20)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-    </column>
-    <foreign-key id="282" parent="239" name="teach_ibfk_1">
-      <ColNames>staff_id</ColNames>
-      <RefColNames>staff_id</RefColNames>
-      <RefTableName>staff</RefTableName>
-    </foreign-key>
-    <foreign-key id="283" parent="239" name="teach_ibfk_2">
-      <ColNames>course_id</ColNames>
-      <RefColNames>course_id</RefColNames>
-      <RefTableName>course</RefTableName>
-    </foreign-key>
-    <index id="284" parent="239" name="PRIMARY">
-      <ColNames>staff_id
-course_id
-semester</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <index id="285" parent="239" name="course_id">
-      <ColNames>course_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="286" parent="239" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
-    </key>
-    <column id="287" parent="240" name="user_id">
-      <AutoIncrement>1</AutoIncrement>
-      <DasType>int(11)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-    </column>
-    <column id="288" parent="240" name="username">
+    <column id="265" parent="238" name="username">
       <DasType>varchar(50)|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="289" parent="240" name="password">
+    <column id="266" parent="238" name="password">
       <DasType>varchar(50)|0s</DasType>
       <Position>3</Position>
     </column>
-    <index id="290" parent="240" name="PRIMARY">
+    <index id="267" parent="238" name="PRIMARY">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="291" parent="240" name="PRIMARY">
+    <key id="268" parent="238" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
